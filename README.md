@@ -5,9 +5,9 @@ Viene a ser una proximación de un proyecto mayor, en este proyecto vamos a abor
 
 ## Prerrequisitos y versiones
 
-node 8.11.2 
-ionic 3.20.0
-cordova 8.0.0
+* node 8.11.2 
+* ionic 3.20.0
+* cordova 8.0.0
 
 ## Instalando
 
