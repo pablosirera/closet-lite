@@ -12,8 +12,11 @@ Viene a ser una proximación de un proyecto mayor, en este proyecto vamos a abor
 ## Instalando
 
 git clone https://github.com/pablosirera/closet-lite.git
+
 intalar nvm (brew install nvm)
+
 nvm install 8.11.2
+
 npm install ionic@3.20.0 cordova@8.0.0
 
 Hacemos ionic info y debemos obtener algo así.
@@ -43,8 +46,8 @@ En proceso de...
 
 ## Autores
 
-* **Pablo Sirera   [GitHub.io](https://pablosirera.github.io/)
-* **Carlos González [GitHub.com](https://github.com/carlosGonzalezUri)
+* **Pablo Sirera**   [GitHub.io](https://pablosirera.github.io/)
+* **Carlos González** [GitHub.com](https://github.com/carlosGonzalezUri)
 
 ## Licencia
 
