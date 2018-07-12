@@ -36,7 +36,11 @@
   },
   "devDependencies": {
     "@ionic/app-scripts": "3.1.8",
+    "pre-push": "^0.1.1",
     "typescript": "2.4.2"
   },
+  "pre-push": [
+    "lint"
+  ],
   "description": "An Ionic project"
 }
