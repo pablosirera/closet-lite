@@ -14,8 +14,9 @@ Viene a ser una proximación de un proyecto mayor, en este proyecto vamos a abor
 ```
 git clone https://github.com/pablosirera/closet-lite.git
 ```
+instalar nvm
 ```
-intalar nvm (brew install nvm)
+brew install nvm
 ```
 ```
 nvm install 8.11.2
@@ -41,6 +42,12 @@ System:
     npm  : 5.6.0 
     OS   : macOS High Sierra
 
+```
+
+## Arrancando el proyecto
+
+```
+ionic serve
 ```
 
 ## Marchando los test!
