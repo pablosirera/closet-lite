@@ -1,6 +1,6 @@
 # CLOSET - LITE
 
-Viene a ser una proximación de un proyecto mayor, en este proyecto vamos a abordar una galería de fotos realizadas desde el propio terminal y un perfil. Para el acceso a la aplicación será necesario un login.
+Viene a ser una aproximación de un proyecto mayor, en este proyecto vamos a abordar una galería de fotos realizadas desde el propio terminal y un perfil. Para el acceso a la aplicación será necesario un login.
 
 
 ## Prerrequisitos y versiones
