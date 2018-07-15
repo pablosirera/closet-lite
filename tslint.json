@@ -1,18 +1,40 @@
 {
-  "extends": ["tslint-ionic-rules", "tslint:recommended"],
+  "extends": [
+    "tslint-ionic-rules/strict",
+    "tslint:recommended"
+  ],
   "rules": {
-    "quotemark": [true, "single"],
+    "quotemark": [
+      true,
+      "single"
+    ],
     "no-duplicate-variable": true,
     "trailing-comma": false,
-    "no-unused-variable": [true],
+    "no-unused-variable": [
+      true
+    ],
     "object-literal-sort-keys": false,
-    "indent": [true, "tabs", 2],
-    "max-line-length": [true, 80],
+    "indent": [
+      true,
+      "tabs",
+      2
+    ],
+    "max-line-length": [
+      true,
+      80
+    ],
     "one-variable-per-declaration": false,
     "import-spacing": false,
     "no-var-keyword": true,
     "space-within-parens": true,
     "triple-equals": true,
+    "ordered-imports": [
+      true,
+      {
+        "import-sources-order": "any",
+        "named-imports-order": "any"
+      }
+    ],
     "member-ordering": [
       true,
       {
@@ -27,5 +49,7 @@
       }
     ]
   },
-  "rulesDirectory": ["node_modules/tslint-eslint-rules/dist/rules"]
+  "rulesDirectory": [
+    "node_modules/tslint-eslint-rules/dist/rules"
+  ]
 }
