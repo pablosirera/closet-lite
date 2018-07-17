@@ -1,0 +1,8 @@
+{
+  "editor.autoIndent": true,
+  "editor.formatOnSave": true,
+  "eslint.autoFixOnSave": true,
+  "javascript.preferences.quoteStyle": "single",
+  "prettier.singleQuote": true,
+  "prettier.eslintIntegration": true
+}
