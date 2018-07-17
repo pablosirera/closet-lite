@@ -50,6 +50,12 @@ System:
 
 ## Arrancando el proyecto
 
+
+Instalar las dependencias
+```
+npm install
+```
+
 ```
 ionic serve
 ```
