@@ -1,13 +1,16 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-
+import { NavController, IonicPage } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 
-//@IonicPage()
+@IonicPage({
+  name: 'home'
+})
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',
 })
+
 export class HomePage {
 
   image: string = null;
