@@ -6,8 +6,6 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
   name: 'home'
 })
 
-
-//@IonicPage()
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',
