@@ -9,7 +9,6 @@ import { HomePage } from '../pages/home/home';
 
 import { Camera } from '@ionic-native/camera';
 
-
 @NgModule({
   bootstrap: [IonicApp],
   declarations: [MyApp, HomePage],

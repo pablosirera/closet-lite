@@ -3,13 +3,6 @@ import { NavController, NavParams } from 'ionic-angular';
 
 import { Camera, CameraOptions } from '@ionic-native/camera';
 
-/**
- * Generated class for the HomePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 //@IonicPage()
 @Component({
   selector: 'page-home',
@@ -19,16 +12,12 @@ export class HomePage {
 
   image: string = null;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private camera: Camera) {
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad HomePage');
+  constructor(public navCtrl: NavController, private camera: Camera) {
   }
 
   //https://ionicframework.com/docs/native/camera/
   getPicture() {
-    let options: CameraOptions = {
+    const options: CameraOptions = {
       destinationType: this.camera.DestinationType.DATA_URL,
       targetWidth: 1000,
       targetHeight: 1000,
