@@ -1,11 +1,19 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Home Page
-    </ion-title>
-  </ion-navbar>
+
 </ion-header>
 
+
 <ion-content padding>
-  <p>Home</p>
+  <section class="upper-container">
+    <ion-icon name="power"></ion-icon>
+  </section>
+  <p class="page-title">
+    CLOSET LITE
+    <img [src]="image" *ngIf="image" />
+  </p>
+  <div class="buttons-container">
+    <button ion-button class="home-buttons" color="dark">PERFIL</button>
+    <button ion-button class="home-buttons" color="dark">GALERÍA</button>
+    <button ion-button class="home-buttons" color="dark" (click)="getPicture()">AGREGAR FOTO</button>
+  </div>
 </ion-content>
