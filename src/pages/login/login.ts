@@ -27,6 +27,7 @@ import { NavController, IonicPage } from 'ionic-angular';
     </ion-content>
   `,
 })
+
 export class LoginPage {
   modelForm = {}
 

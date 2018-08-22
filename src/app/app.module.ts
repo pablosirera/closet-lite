@@ -10,12 +10,16 @@ import { HomeModule } from '../pages/home/home.module';
 import { LoginModule } from '../pages/login/login.module'
 
 import { Camera } from '@ionic-native/camera';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { firebaseConfig } from '../config'
 
 @NgModule({
   bootstrap: [IonicApp],
   declarations: [MyApp],
   entryComponents: [MyApp],
   imports: [
+    AngularFireModule.initializeApp(firebaseConfig.fire),
     BrowserModule,
     FormsModule,
     HomeModule,
@@ -25,6 +29,7 @@ import { Camera } from '@ionic-native/camera';
   providers: [
     StatusBar,
     SplashScreen,
+    AngularFireAuth,
     Camera,
     {
       provide: ErrorHandler,
