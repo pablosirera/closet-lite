@@ -6,30 +6,38 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { FormsModule } from '@angular/forms';
 
 import { MyApp } from './app.component';
-import { HomeModule } from '../pages/home/home.module';
-import { LoginModule } from '../pages/login/login.module'
+import { LoginPage } from '../pages/login/login'
 
 import { Camera } from '@ionic-native/camera';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { firebaseConfig } from '../config'
 
+import { AuthService } from '../services/auth.service'
+import { HomeModule } from '../pages/home/home.module';
+
 @NgModule({
   bootstrap: [IonicApp],
-  declarations: [MyApp],
-  entryComponents: [MyApp],
+  declarations: [
+    MyApp,
+    LoginPage
+  ],
+  entryComponents: [
+    MyApp,
+    LoginPage
+  ],
   imports: [
-    AngularFireModule.initializeApp(firebaseConfig.fire),
     BrowserModule,
     FormsModule,
-    HomeModule,
-    LoginModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig.fire),
+    HomeModule
   ],
   providers: [
     StatusBar,
     SplashScreen,
     AngularFireAuth,
+    AuthService,
     Camera,
     {
       provide: ErrorHandler,

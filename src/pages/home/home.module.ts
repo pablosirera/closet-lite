@@ -4,6 +4,7 @@ import { HomePage } from './home'
 
 @NgModule({
   declarations: [HomePage],
+  entryComponents: [HomePage],
   imports: [IonicPageModule.forChild(HomePage)]
 })
 

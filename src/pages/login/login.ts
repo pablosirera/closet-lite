@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController, IonicPage } from 'ionic-angular';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { HomePage } from '../home/home';
+import { AuthService } from '../../services/auth.service';
 
 @IonicPage({
   name: 'login'
@@ -7,36 +10,67 @@ import { NavController, IonicPage } from 'ionic-angular';
 
 @Component({
   selector: 'page-login',
-  template: `
-    <ion-content padding>
-      <form (ngSubmit)="onSubmitForm()">
-        <ion-item>
-          <ion-label floating>Username</ion-label>
-          <ion-input type="text" name="username" [(ngModel)]="modelForm.user"></ion-input>
-        </ion-item>
-
-        <ion-item>
-          <ion-label floating>Password</ion-label>
-          <ion-input type="password" name="password" [(ngModel)]="modelForm.pass"></ion-input>
-        </ion-item>
-
-        <div padding>
-          <button ion-button block>Sign In</button>
-        </div>
-      </form>
-    </ion-content>
-  `,
+  templateUrl: 'login.html'
 })
 
-export class LoginPage {
-  modelForm = {}
+export class LoginPage implements OnInit {
+  loginForm: FormGroup;
+  submitted: boolean = false;
+  loginError: string;
 
-  constructor(public navCtrl: NavController) {
+  constructor(
+    public navCtrl: NavController,
+    private auth: AuthService,
+    private fb: FormBuilder
+  ) { }
+
+  ngOnInit(): void {
+    this.loginForm = this.fb.group({
+      email: ['', Validators.compose([Validators.required])],
+      password: ['', Validators.compose([Validators.required, Validators.minLength(6)])]
+    })
+  }
+
+  get form() {
+    return this.loginForm.controls;
   }
 
   onSubmitForm() {
-    console.log(this.modelForm)
-    this.navCtrl.push('home');
+    if (this.loginForm.invalid) {
+      return;
+    }
+
+    const credentials = this.getCredentials()
+    this.auth.signInWithEmail(credentials).then(() => {
+      this.navCtrl.setRoot(HomePage)
+    }, error => {
+      this.loginError = error.message
+    })
   }
+
+  onRegisterUser() {
+    if (this.loginForm.invalid) {
+      return;
+    }
+
+    const credentials = this.getCredentials()
+    this.auth.createUserWithEmail(credentials).then(() => {
+      this.navCtrl.setRoot(HomePage)
+    }, error => {
+      this.loginError = error.message
+    })
+  }
+
+  getCredentials() {
+    const dataForm = this.loginForm.value
+    this.submitted = true
+
+    return {
+      email: dataForm.email,
+      password: dataForm.password
+    }
+  }
+
+  loginWithGoogle() { }
 
 }

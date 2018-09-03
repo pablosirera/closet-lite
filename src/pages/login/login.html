@@ -1,0 +1,41 @@
+<ion-content no-bounce padding>
+  <form [formGroup]="loginForm" class="login-form">
+    <ion-item>
+      <ion-label floating>Email</ion-label>
+      <ion-input type="email" formControlName="email" [ngClass]="{ 'is-invalid': form.email.errors }" required></ion-input>
+    </ion-item>
+
+    <div *ngIf="!form.password.pristine && form.email.invalid">
+      <div *ngIf="form.email.errors.required">Email is required</div>
+    </div>
+
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input type="password" formControlName="password" [ngClass]="{ 'is-invalid': form.password.errors }" required></ion-input>
+    </ion-item>
+
+    <div *ngIf="!form.password.pristine && form.password.invalid">
+      asd
+      <div *ngIf="form.password.errors.required">Password is required</div>
+      <div *ngIf="form.password.errors.minlength">Password must be at least 6 characters</div>
+    </div>
+
+    <p>{{ loginError }}</p>
+
+    <div padding>
+      <button ion-button block [disabled]="!loginForm.valid" (click)="onSubmitForm()">Sign In</button>
+    </div>
+
+    <div padding>
+      <button color="secondary" ion-button block [disabled]="!loginForm.valid" (click)="onRegisterUser()">Register</button>
+    </div>
+
+
+    <ion-list>
+      <button ion-button icon-left block clear (click)="loginWithGoogle()">
+        <ion-icon name="logo-google"></ion-icon>
+        Log in with Google
+      </button>
+    </ion-list>
+  </form>
+</ion-content>
