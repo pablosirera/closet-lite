@@ -4,6 +4,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { FormsModule } from '@angular/forms';
+import { NgxErrorsModule } from '@ultimate/ngxerrors'
 
 import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login'
@@ -31,7 +32,8 @@ import { HomeModule } from '../pages/home/home.module';
     FormsModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig.fire),
-    HomeModule
+    HomeModule,
+    NgxErrorsModule
   ],
   providers: [
     StatusBar,

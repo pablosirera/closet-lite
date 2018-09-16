@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, IonicPage } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import { AuthService } from '../../services/auth.service';
 
 @IonicPage({
   name: 'home'
@@ -15,7 +16,16 @@ export class HomePage {
 
   image: string = null;
 
-  constructor(public navCtrl: NavController, private camera: Camera) {
+  constructor(
+    public navCtrl: NavController,
+    private camera: Camera,
+    private auth: AuthService
+  ) {
+  }
+
+  logout() {
+    this.auth.signOut();
+    this.navCtrl.setRoot(HomePage);
   }
 
   //https://ionicframework.com/docs/native/camera/

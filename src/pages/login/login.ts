@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavController, IonicPage } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HomePage } from '../home/home';
@@ -13,18 +13,15 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: 'login.html'
 })
 
-export class LoginPage implements OnInit {
+export class LoginPage {
   loginForm: FormGroup;
-  submitted: boolean = false;
   loginError: string;
 
   constructor(
     public navCtrl: NavController,
     private auth: AuthService,
     private fb: FormBuilder
-  ) { }
-
-  ngOnInit(): void {
+  ) {
     this.loginForm = this.fb.group({
       email: ['', Validators.compose([Validators.required])],
       password: ['', Validators.compose([Validators.required, Validators.minLength(6)])]
@@ -35,7 +32,7 @@ export class LoginPage implements OnInit {
     return this.loginForm.controls;
   }
 
-  onSubmitForm() {
+  login() {
     if (this.loginForm.invalid) {
       return;
     }
@@ -48,7 +45,7 @@ export class LoginPage implements OnInit {
     })
   }
 
-  onRegisterUser() {
+  signup() {
     if (this.loginForm.invalid) {
       return;
     }
@@ -63,7 +60,6 @@ export class LoginPage implements OnInit {
 
   getCredentials() {
     const dataForm = this.loginForm.value
-    this.submitted = true
 
     return {
       email: dataForm.email,
@@ -71,6 +67,9 @@ export class LoginPage implements OnInit {
     }
   }
 
-  loginWithGoogle() { }
+  async loginWithGoogle() {
+    await this.auth.signInWithGoogle();
+    this.navCtrl.setRoot(HomePage);
+  }
 
 }

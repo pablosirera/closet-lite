@@ -1,5 +1,4 @@
 page-home {
-
     .page-title {
         font-size: 80px;
         text-align: center;
@@ -7,6 +6,9 @@ page-home {
     .upper-container {
         position: absolute;
         right: 10px;
+        .icon-logout {
+            font-size: 30px;
+        }
     }
     .scroll-content {
         flex-direction: column;
