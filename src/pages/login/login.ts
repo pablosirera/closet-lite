@@ -7,12 +7,10 @@ import { AuthService } from '../../services/auth.service';
 @IonicPage({
   name: 'login'
 })
-
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html'
 })
-
 export class LoginPage {
   loginForm: FormGroup;
   loginError: string;
@@ -24,8 +22,11 @@ export class LoginPage {
   ) {
     this.loginForm = this.fb.group({
       email: ['', Validators.compose([Validators.required])],
-      password: ['', Validators.compose([Validators.required, Validators.minLength(6)])]
-    })
+      password: [
+        '',
+        Validators.compose([Validators.required, Validators.minLength(6)])
+      ]
+    });
   }
 
   get form() {
@@ -37,12 +38,15 @@ export class LoginPage {
       return;
     }
 
-    const credentials = this.getCredentials()
-    this.auth.signInWithEmail(credentials).then(() => {
-      this.navCtrl.setRoot(HomePage)
-    }, error => {
-      this.loginError = error.message
-    })
+    const credentials = this.getCredentials();
+    this.auth.signInWithEmail(credentials).then(
+      () => {
+        this.navCtrl.setRoot(HomePage);
+      },
+      error => {
+        this.loginError = error.message;
+      }
+    );
   }
 
   signup() {
@@ -50,26 +54,28 @@ export class LoginPage {
       return;
     }
 
-    const credentials = this.getCredentials()
-    this.auth.createUserWithEmail(credentials).then(() => {
-      this.navCtrl.setRoot(HomePage)
-    }, error => {
-      this.loginError = error.message
-    })
+    const credentials = this.getCredentials();
+    this.auth.createUserWithEmail(credentials).then(
+      () => {
+        this.navCtrl.setRoot(HomePage);
+      },
+      error => {
+        this.loginError = error.message;
+      }
+    );
   }
 
   getCredentials() {
-    const dataForm = this.loginForm.value
+    const dataForm = this.loginForm.value;
 
     return {
       email: dataForm.email,
       password: dataForm.password
-    }
+    };
   }
 
   async loginWithGoogle() {
     await this.auth.signInWithGoogle();
     this.navCtrl.setRoot(HomePage);
   }
-
 }
