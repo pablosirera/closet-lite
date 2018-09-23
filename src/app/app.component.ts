@@ -3,14 +3,13 @@ import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { LoginPage } from '../pages/login/login'
+import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
 import { AuthService } from '../services/auth.service';
 
 @Component({
   templateUrl: 'app.html'
 })
-
 export class MyApp {
   rootPage: any;
 
@@ -23,20 +22,14 @@ export class MyApp {
     platform.ready().then(() => {
       statusBar.styleDefault();
       splashScreen.hide();
-      this.auth.afAuth.authState
-        .subscribe(
-          user => {
-            if (user) {
-              this.rootPage = HomePage;
-            } else {
-              this.rootPage = LoginPage;
-            }
-          },
-          () => {
-            this.rootPage = LoginPage;
-          }
-        );
+      this.auth.afAuth.authState.subscribe(
+        user => {
+          this.rootPage = user ? HomePage : LoginPage;
+        },
+        () => {
+          this.rootPage = LoginPage;
+        }
+      );
     });
-
   }
 }
