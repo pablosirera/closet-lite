@@ -4,5 +4,6 @@
   "eslint.autoFixOnSave": true,
   "javascript.preferences.quoteStyle": "single",
   "prettier.singleQuote": true,
-  "prettier.eslintIntegration": true
+  "prettier.eslintIntegration": true,
+  "editor.tabSize": 2
 }

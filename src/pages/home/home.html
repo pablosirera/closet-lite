@@ -5,7 +5,7 @@
 
 <ion-content padding>
   <section class="upper-container">
-    <ion-icon name="power"></ion-icon>
+    <ion-icon class="icon-logout" (click)="logout()" *ngIf="auth.authenticated" name="log-out" item-left></ion-icon>
   </section>
   <p class="page-title">
     CLOSET LITE
