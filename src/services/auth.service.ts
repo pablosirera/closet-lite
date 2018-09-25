@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
-import * as firebase from 'firebase/app'
-import AuthProvider = firebase.auth.AuthProvider
+import * as firebase from 'firebase/app';
+import AuthProvider = firebase.auth.AuthProvider;
 
 @Injectable()
 export class AuthService {
-  private user: firebase.User;
+  public user: firebase.User;
 
   constructor(public afAuth: AngularFireAuth) {
     afAuth.authState.subscribe(user => {
       this.user = user;
-    })
+    });
   }
 
   get authenticated(): boolean {
@@ -18,11 +18,17 @@ export class AuthService {
   }
 
   signInWithEmail(credentials: { email: string; password: string }) {
-    return this.afAuth.auth.signInWithEmailAndPassword(credentials.email, credentials.password);
+    return this.afAuth.auth.signInWithEmailAndPassword(
+      credentials.email,
+      credentials.password
+    );
   }
 
   createUserWithEmail(credentials: { email: string; password: string }) {
-    return this.afAuth.auth.createUserWithEmailAndPassword(credentials.email, credentials.password);
+    return this.afAuth.auth.createUserWithEmailAndPassword(
+      credentials.email,
+      credentials.password
+    );
   }
 
   signOut(): Promise<any> {
@@ -30,6 +36,8 @@ export class AuthService {
   }
 
   signInWithGoogle() {
-    return this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+    return this.afAuth.auth.signInWithPopup(
+      new firebase.auth.GoogleAuthProvider()
+    );
   }
 }
