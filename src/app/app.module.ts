@@ -8,6 +8,7 @@ import { NgxErrorsModule } from '@ultimate/ngxerrors';
 
 import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
+import { ProfilePage } from '../pages/profile/profile';
 
 import { Camera } from '@ionic-native/camera';
 import { AngularFireModule } from 'angularfire2';
@@ -19,8 +20,8 @@ import { HomeModule } from '../pages/home/home.module';
 
 @NgModule({
   bootstrap: [IonicApp],
-  declarations: [MyApp, LoginPage],
-  entryComponents: [MyApp, LoginPage],
+  declarations: [MyApp, LoginPage, ProfilePage],
+  entryComponents: [MyApp, LoginPage, ProfilePage],
   imports: [
     BrowserModule,
     FormsModule,

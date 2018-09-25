@@ -1,8 +1,3 @@
-<ion-header>
-
-</ion-header>
-
-
 <ion-content padding>
   <section class="upper-container">
     <ion-icon class="icon-logout" (click)="logout()" *ngIf="auth.authenticated" name="log-out" item-left></ion-icon>
@@ -12,8 +7,8 @@
     <img [src]="image" *ngIf="image" />
   </p>
   <div class="buttons-container">
-    <button ion-button class="home-buttons" color="dark">PERFIL</button>
-    <button ion-button class="home-buttons" color="dark">GALERÍA</button>
+    <button ion-button class="home-buttons" color="dark" (click)="navigateTo('profile')">PERFIL</button>
+    <button ion-button class="home-buttons" color="dark" (click)="navigateTo('gallery')">GALERÍA</button>
     <button ion-button class="home-buttons" color="dark" (click)="getPicture()">AGREGAR FOTO</button>
   </div>
 </ion-content>
